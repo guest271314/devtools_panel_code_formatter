@@ -1,0 +1,8 @@
+{
+  "name": "DevTools Panel Code Formatter",
+  "version": "1.0",
+  "manifest_version": 3,
+  "devtools_page": "formatter.html",
+  "homepage_url":"https://github.com/guest271314/devtools_panel_code_formatter",
+  "author": "guest271314"
+}
