@@ -12,7 +12,7 @@ onload = () => {
   css.onclick = () => textarea.value = css_beautify(textarea.value, {
     indent_size: 2
   });
-  textarea.onpaste = async(e) => {
+  textarea.onpaste = (e) => {
     e.preventDefault();
     // Remove leading space characters
     e.target.value = e.clipboardData.getData('text').replace(/^\s+/, '');
