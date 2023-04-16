@@ -1,0 +1,9 @@
+textarea {
+  display: block;
+  width: 90vw;
+  height: 80vh;
+}
+
+button {
+  display: inline-block;
+}
