@@ -38,3 +38,4 @@ onload = () => {
   html.onclick = () => handleFormat(html_beautify);
   css.onclick = () => handleFormat(css_beautify);
   textarea.ondrop = textarea.onpaste = handleDataTransfer;
+}
