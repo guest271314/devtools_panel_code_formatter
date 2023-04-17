@@ -16,7 +16,6 @@ onload = () => {
           break;
         case 'drop':
           const [file] = e.dataTransfer.files;
-          console.log(file);
           if (!/javascript|html|css/.test(file.type)) {
             value = `Dropped file has ${file.type} MIME type.` +
               `Expected file types: text/javascript, text/html, or text/css.`;
