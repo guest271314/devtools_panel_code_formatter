@@ -1,10 +1,10 @@
 chrome.devtools.panels.create("Formatter", null, "formatter.html");
 
 onload = () => {
-  const options = {
+  const settings = {
     indent_size: 2
   };
-  const handleFormat = (formatter, options) =>
+  const handleFormat = (formatter, options = settings) =>
     textarea.value = formatter(textarea.value, options);
   const handleDataTransfer = async (e) => {
     try {
@@ -16,9 +16,10 @@ onload = () => {
           break;
         case 'drop':
           const [file] = e.dataTransfer.files;
-          if (!/javascript|html|css/.test(file.type)) {
+          console.log(file);
+          if (!/javascript|html|css|json/.test(file.type)) {
             value = `Dropped file has ${file.type} MIME type.` +
-              `Expected file types: text/javascript, text/html, or text/css.`;
+              `Expected file types: text/javascript, text/html, text/css, application/json.`;
             break;
           }
           value = await file.text();
@@ -34,8 +35,7 @@ onload = () => {
   }
   const textarea = document.querySelector('textarea');
   const [js, html, css] = document.querySelectorAll('button');
-  js.onclick = () => handleFormat(js_beautify, options);
-  html.onclick = () => handleFormat(html_beautify, options);
-  css.onclick = () => handleFormat(css_beautify, options);
+  js.onclick = () => handleFormat(js_beautify);
+  html.onclick = () => handleFormat(html_beautify);
+  css.onclick = () => handleFormat(css_beautify);
   textarea.ondrop = textarea.onpaste = handleDataTransfer;
-}
